@@ -38,3 +38,18 @@ class Message_File(models.Model):
     class Meta:
         verbose_name = 'Message File'
         verbose_name_plural = 'Message Files'
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    payload = models.JSONField()
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+
+
+
+
+
+
+

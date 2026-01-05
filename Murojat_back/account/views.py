@@ -1,4 +1,4 @@
-from rest_framework.decorators import api_view,permission_classes
+from rest_framework.decorators import api_view,permission_classes,authentication_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 import requests
 from django.conf import settings
@@ -142,6 +142,7 @@ class ApiCheckStudent(ListModelMixin, CreateModelMixin, GenericViewSet):
         )
 
 @api_view(['POST'])
+@authentication_classes([])
 @permission_classes([AllowAny])
 def auth(request):
     serializer = CreatePasswordSerializer(data=request.data)
